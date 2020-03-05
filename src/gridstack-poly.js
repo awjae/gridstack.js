@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /** gridstack.js 1.0.0-dev - IE and older browsers Polyfills for this library @preserve*/
+=======
+/** gridstack.js 1.1.0-dev - IE and older browsers Polyfills for this library @preserve*/
+>>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
 /**
  * https://gridstackjs.com/
  * (c) 2019-2020 Alain Dumesny

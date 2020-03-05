@@ -30,6 +30,7 @@
         + count++ + '</div></div>');
     };
 
+<<<<<<< HEAD
     grid.on('added', function(e, items) {log('added ', items)});
     grid.on('removed', function(e, items) {log('removed ', items)});
     grid.on('change', function(e, items) {log('change ', items)});
@@ -38,6 +39,13 @@
       items.forEach(function(item) { str += ' (x,y,wxh)=' + item.x + ',' + item.y + ' ' + item.width + 'x' + item.height; });
       console.log(type + items.length + ' items.' + str );
     }
+=======
+    grid.on('added removed change', function(e, items) {
+      var str = '';
+      items.forEach(function(item) { str += ' (x,y)=' + item.x + ',' + item.y; });
+      console.log(e.type + ' ' + items.length + ' items:' + str );
+    });
+>>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
 
     grid.on('disable', function(event) {
       var grid = event.target;

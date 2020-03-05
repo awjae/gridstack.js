@@ -77,8 +77,13 @@ npm install --save gridstack
 * Using CDN (minimized):
 
 ```html
+<<<<<<< HEAD
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridstack@1.0.0/dist/gridstack.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/gridstack@1.0.0/dist/gridstack.all.js"></script>
+=======
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridstack@1.1.0/dist/gridstack.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/gridstack@1.1.0/dist/gridstack.all.js"></script>
+>>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
 ```
 
 if you need to debug, look at the git demo/ examples for non min includes.

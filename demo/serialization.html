@@ -28,6 +28,7 @@
   <script type="text/javascript">
     var grid = GridStack.init();
     
+<<<<<<< HEAD
     grid.on('added', function(e, items) {log('added ', items)});
     grid.on('removed', function(e, items) {log('removed ', items)});
     grid.on('change', function(e, items) {log('change ', items)});
@@ -72,6 +73,49 @@
       grid.removeAll();
     }
 
+=======
+    grid.on('added removed change', function(e, items) {
+      var str = '';
+      items.forEach(function(item) { str += ' (x,y)=' + item.x + ',' + item.y; });
+      console.log(e.type + ' ' + items.length + ' items:' + str );
+    });
+
+    var serializedData = [
+      {x: 0, y: 0, width: 2, height: 2},
+      {x: 3, y: 1, width: 1, height: 2},
+      {x: 4, y: 1, width: 1, height: 1},
+      {x: 2, y: 3, width: 3, height: 1},
+      {x: 1, y: 3, width: 1, height: 1}
+    ];
+
+    loadGrid = function() {
+      grid.removeAll();
+      var items = GridStack.Utils.sort(serializedData);
+      grid.batchUpdate();
+      items.forEach(function (node) {
+        grid.addWidget('<div><div class="grid-stack-item-content"></div></div>', node);
+      });
+      grid.commit();
+    };
+
+    saveGrid = function() {
+      serializedData = [];
+      grid.engine.nodes.forEach(function(node) {
+        serializedData.push({
+          x: node.x,
+          y: node.y,
+          width: node.width,
+          height: node.height
+        });
+      });
+      document.querySelector('#saved-data').value = JSON.stringify(serializedData, null, '  ');
+    };
+
+    clearGrid = function() {
+      grid.removeAll();
+    }
+
+>>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
     loadGrid();
   </script>
 </body>

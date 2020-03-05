@@ -1,0 +1,29 @@
+<html>
+
+<head></head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridstack@1.0.0/dist/gridstack.min.css">
+<body>
+    <div class="grid-stack" data-gs-current-row="1" style="height: 60px;">
+    </div>
+    <style>
+        .grid-stack-item {
+            border: 1px solid black;
+        }
+    </style>
+    <script src="../src/jquery.js"></script>
+    <script src="../src/gridstack.js"></script>
+    <script src="../src/jquery-ui.js"></script>
+    <script src="../src/gridstack.jQueryUI.js"></script>
+
+    <script>
+        var options = { // put in gridstack options here
+            disableOneColumnMode: true, // for jfiddle small window size
+            float: false
+        };
+        var grid = GridStack.init(options);
+        grid.addWidget('<div class="grid-stack-item"><div class="grid-stack-item-content"> Item 1 </div></div>', 0,0,1,1);
+        grid.addWidget('<div class="grid-stack-item"><div class="grid-stack-item-content"> Item 2 wider </div></div>', 1,0,2,1);
+    </script>
+</body>
+
+</html>

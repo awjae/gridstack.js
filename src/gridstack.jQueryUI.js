@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /** gridstack.js 1.0.0-dev - JQuery UI Drag&Drop plugin @preserve */
+=======
+/** gridstack.js 1.1.0-dev - JQuery UI Drag&Drop plugin @preserve */
+>>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
 /**
  * https://gridstackjs.com/
  * (c) 2014-2020 Alain Dumesny, Dylan Weiss, Pavel Reznikov
