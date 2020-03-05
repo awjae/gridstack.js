@@ -1,9 +1,5 @@
 /**
-<<<<<<< HEAD
- * gridstack.js 1.0.0-dev
-=======
  * gridstack.js 1.1.0-dev
->>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
  * https://gridstackjs.com/
  * (c) 2014-2020 Alain Dumesny, Dylan Weiss, Pavel Reznikov
  * gridstack.js may be freely distributed under the MIT license.
@@ -722,12 +718,8 @@
     // elements attributes override any passed options (like CSS style) - merge the two together
     this.opts = Utils.defaults(opts, {
       column: parseInt(this.$el.attr('data-gs-column')) || 12,
-<<<<<<< HEAD
-      maxRow: parseInt(this.$el.attr('data-gs-max-row')) || 0,
-=======
       minRow: rowAttr ? rowAttr : parseInt(this.$el.attr('data-gs-min-row')) || 0,
       maxRow: rowAttr ? rowAttr : parseInt(this.$el.attr('data-gs-max-row')) || 0,
->>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
       itemClass: 'grid-stack-item',
       placeholderClass: 'grid-stack-placeholder',
       placeholderText: '',
@@ -1173,12 +1165,9 @@
   GridStack.prototype._updateContainerHeight = function() {
     if (this.engine._batchMode) { return; }
     var row = this.engine.getRow();
-<<<<<<< HEAD
-=======
     if (row < this.opts.minRow) {
       row = this.opts.minRow;
     }
->>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
     // check for css min height. Each row is cellHeight + verticalMargin, until last one which has no margin below
     var cssMinHeight = parseInt(this.$el.css('min-height'));
     if (cssMinHeight > 0) {
@@ -1310,17 +1299,9 @@
       self.engine.cleanNodes();
       self.engine.beginUpdate(node);
       cellWidth = self.cellWidth();
-<<<<<<< HEAD
-      var strictCellHeight = self.cellHeight();
-      // TODO: cellHeight = cellHeight() causes issue (i.e. remove strictCellHeight above) otherwise
-      // when sizing up we jump almost right away to next size instead of half way there. Not sure
-      // why as we don't use ceil() in many places but round() instead.
-      cellHeight = (self.$el.height() + grid.verticalMargin()) / parseInt(self.$el.attr('data-gs-current-row'));
-=======
       var strictCellHeight = self.cellHeight(); // heigh without v-margin
       // compute height with v-margin (Note: we add 1 margin as last row is missing it)
       cellFullHeight = (self.$el.height() + self.verticalMargin()) / parseInt(self.$el.attr('data-gs-current-row'));
->>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
       self.placeholder
         .attr('data-gs-x', o.attr('data-gs-x'))
         .attr('data-gs-y', o.attr('data-gs-y'))
@@ -1493,10 +1474,6 @@
       // Tempting to initialize the passed in opt with default and valid values, but this break knockout demos
       // as the actual value are filled in when _prepareElement() calls el.attr('data-gs-xyz) before adding the node.
       // opt = this.engine._prepareNode(opt);
-<<<<<<< HEAD
-      opt = opt || {};
-=======
->>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
     } else {
       // old legacy way of calling with items spelled out - call us back with single object instead (so we can properly initialized values)
       return this.addWidget(el, {x: opt, y: y, width: width, height: height, autoPosition: autoPosition,
@@ -1504,12 +1481,9 @@
     }
 
     el = $(el);
-<<<<<<< HEAD
-=======
     if (opt) { // see knockout above
       this.engine._prepareNode(opt);
     }
->>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
     this._writeAttr(el, opt);
     this.$el.append(el);
     return this.makeWidget(el);
@@ -2063,8 +2037,6 @@
    * notifications (see doc for supported events)
    */
   GridStack.prototype.on = function(eventName, callback) {
-<<<<<<< HEAD
-=======
     // check for array of names being passed instead
     if (eventName.indexOf(' ') !== -1) {
       var names = eventName.split(' ');
@@ -2072,7 +2044,6 @@
       return;
     }
 
->>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
     if (eventName === 'change' || eventName === 'added' || eventName === 'removed') {
       // native CustomEvent handlers - cash the generic handlers so we can remove
       this._gsEventHandler = this._gsEventHandler || {};
@@ -2086,8 +2057,6 @@
 
   /** unsubscribe from the 'on' event */
   GridStack.prototype.off = function(eventName) {
-<<<<<<< HEAD
-=======
     // check for array of names being passed instead
     if (eventName.indexOf(' ') !== -1) {
       var names = eventName.split(' ');
@@ -2095,7 +2064,6 @@
       return;
     }
 
->>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
     if (eventName === 'change' || eventName === 'added' || eventName === 'removed') {
       // remove native CustomEvent handlers
       if (this._gsEventHandler && this._gsEventHandler[eventName]) {
