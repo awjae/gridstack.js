@@ -118,6 +118,7 @@
     });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     grid.on('added', function(e, items) { log('added ', items) });
     grid.on('removed', function(e, items) { log('removed ', items) });
     grid.on('change', function(e, items) { log('change ', items) });
@@ -133,6 +134,13 @@
       console.log(e.type + ' ' + items.length + ' items:' + str );
     });
 >>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
+=======
+    grid.on('added removed change', function(e, items) {
+      var str = '';
+      items.forEach(function(item) { str += ' (x,y)=' + item.x + ',' + item.y; });
+      console.log(e.type + ' ' + items.length + ' items:' + str );
+    });
+>>>>>>> 722dd87334b043bfaffb86c85301691c3a5f9aa3
 
     // TODO: switch jquery-ui out
     $('.newWidget').draggable({

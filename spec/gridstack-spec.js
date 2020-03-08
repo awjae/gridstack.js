@@ -1033,19 +1033,25 @@ describe('gridstack', function() {
       document.body.removeChild(document.getElementById('gs-cont'));
     });
 <<<<<<< HEAD
+<<<<<<< HEAD
     it('should do nothing and return node', function() {
       var options = {
         cellHeight: 80,
         verticalMargin: 10
       };
       var grid = GridStack.init(options);
+=======
+    it('should do nothing and return NULL to mean nothing happened', function() {
+      var grid = GridStack.init();
+>>>>>>> 722dd87334b043bfaffb86c85301691c3a5f9aa3
       var items = $('.grid-stack-item');
       grid._updateElement(items[0], function(el, node) {
-        var newNode = grid.engine.moveNode(node);
-        expect(newNode).toBe(node);
+        var hasMoved = grid.engine.moveNode(node);
+        expect(hasMoved).toBe(null);
       });
     });
     it('should do nothing and return node', function() {
+<<<<<<< HEAD
       var options = {
         cellHeight: 80,
         verticalMargin: 10
@@ -1063,6 +1069,9 @@ describe('gridstack', function() {
     it('should do nothing and return node', function() {
       var grid = GridStack.init();
 >>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
+=======
+      var grid = GridStack.init();
+>>>>>>> 722dd87334b043bfaffb86c85301691c3a5f9aa3
       var items = $('.grid-stack-item');
       grid.minWidth(items[0], 1);
       grid.maxWidth(items[0], 2);

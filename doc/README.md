@@ -107,14 +107,20 @@ gridstack.js API
 - `data-gs-animate` - turns animation on
 - `data-gs-column` - amount of columns. Setting non-default value must be supported by equivalent change in CSS, [see docs here](https://github.com/gridstack/gridstack.js#change-grid-columns).
 <<<<<<< HEAD
+<<<<<<< HEAD
 - `data-gs-max-row` - maximum rows amount. Default is `0` which means no maximum rows.
 - `data-gs-current-row` - current rows amount. Set by the library only. Can be used by the CSS rules.
 =======
+=======
+>>>>>>> 722dd87334b043bfaffb86c85301691c3a5f9aa3
 - `data-gs-current-row` - (internal) current rows amount. Set by the library only. Can be used by the CSS rules.
 - `data-gs-max-row` - maximum rows amount. Default is `0` which means no max.
 - `data-gs-min-row` - minimum rows amount. Default is `0`. You can also do this with `min-height` CSS attribute on the grid div in pixels, which will round to the closest row.
 - `data-gs-row` - fix grid number of rows. This is a shortcut of writing `data-gs-min-row="N" data-gs-max-row="N"`. (default `0` no constrain)
+<<<<<<< HEAD
 >>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
+=======
+>>>>>>> 722dd87334b043bfaffb86c85301691c3a5f9aa3
 
 ## Item attributes
 
@@ -133,15 +139,21 @@ to completely lock the widget.
 ## Events
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Those are the events set by the grid when items are added/removed or changed - they use standard JS calls with a CustomElement that stores the list
 of nodes that changed (id, x, y, width, height, etc...)
 =======
+=======
+>>>>>>> 722dd87334b043bfaffb86c85301691c3a5f9aa3
 Those are the events set by the grid when items are added/removed or changed - they use standard JS calls with a CustomElement `detail` that stores the list
 of nodes that changed (id, x, y, width, height, etc...).
 
 You can call it on a single event name, or space separated list:
 `grid.on('added removed change', ...)`
+<<<<<<< HEAD
 >>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
+=======
+>>>>>>> 722dd87334b043bfaffb86c85301691c3a5f9aa3
 
 ### added(event, items)
 

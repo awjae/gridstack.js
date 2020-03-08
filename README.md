@@ -37,6 +37,7 @@ Join us on Slack: https://gridstackjs.troolee.com
   - [Custom columns CSS](#custom-columns-css)
   - [Override resizable/draggable options](#override-resizabledraggable-options)
   - [Touch devices support](#touch-devices-support)
+  - [Migrating to v0.6.x](#migrating-to-v06x)
   - [Migrating to v1.0.0](#migrating-to-v100)
 - [Changes](#changes)
 - [The Team](#the-team)
@@ -78,12 +79,17 @@ npm install --save gridstack
 
 ```html
 <<<<<<< HEAD
+<<<<<<< HEAD
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridstack@1.0.0/dist/gridstack.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/gridstack@1.0.0/dist/gridstack.all.js"></script>
 =======
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridstack@1.1.0/dist/gridstack.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/gridstack@1.1.0/dist/gridstack.all.js"></script>
 >>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
+=======
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridstack@1.1.0/dist/gridstack.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/gridstack@1.1.0/dist/gridstack.all.js"></script>
+>>>>>>> 722dd87334b043bfaffb86c85301691c3a5f9aa3
 ```
 
 if you need to debug, look at the git demo/ examples for non min includes.
@@ -223,8 +229,17 @@ Better yet, here is a SASS code snippet which can make life much easier (Thanks 
 }
 ```
 
-you can also look at the SASS [src/gridstack-extra.scss](https://github.com/gridstack/gridstack.js/blob/develop/src/gridstack-extra.scss) and modify to add more columns
+you can also use the SASS [src/gridstack-extra.scss](https://github.com/gridstack/gridstack.js/blob/develop/src/gridstack-extra.scss) included in NPM package and modify to add more columns
 and also have the `.grid-stack-N` prefix to support letting the user change columns dynamically.
+
+Sample gulp command for 30 columns:
+```js
+gulp.src('node_modules/gridstack/dist/src/gridstack-extra.scss')
+        .pipe(replace('$gridstack-columns: 11 !default;','$gridstack-columns: 30;'))
+        .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(rename({extname: '.min.css'}))
+        .pipe(gulp.dest('dist/css'))
+```
 
 ## Override resizable/draggable options
 
@@ -263,11 +278,15 @@ GridStack.init(options);
 If you're still experiencing issues on touch devices please check [#444](https://github.com/gridstack/gridstack.js/issues/444)
 
 
+## Migrating to v0.6.x
+
+starting in 0.6.x `change` event are no longer sent (for pretty much most nodes!) when an item is just added/deleted unless it also changes other nodes (was incorrect and causing inefficiencies). You may need to track `added|removed` [events](https://github.com/gridstack/gridstack.js/tree/develop/doc#events) if you didn't and relied on the old broken behavior.
+
 ## Migrating to v1.0.0
 
 v1.0.0 removed Jquery from the API and external dependencies, which will require some code changes. Here is a list of the changes:
 
-1. your code only needs to include `gridstack.all.js` and `gristack.css` (don't include other) and is recommended you do that as internal dependencies will change. Right now jquery+jquery-ui (trimmed versions) are still being used internally for a short while.
+1. your code only needs to include `gridstack.all.js` and `gristack.css` (don't include other JS) and is recommended you do that as internal dependencies will change over time. If you are jquery based, also see note below.
 
 2. code change:
 
@@ -278,7 +297,7 @@ $('.grid-stack').gridstack(opts?);
 var grid = $('.grid-stack').data('gridstack');
 
 // returned Jquery element
-grid.addWidget($('<div><div class="grid-stack-item-content"> test </div></div>'), {width: 2});
+grid.addWidget($('<div><div class="grid-stack-item-content"> test </div></div>'), undefined, undefined, 2, undefined, true);
 
 // jquery event handler
 $('.grid-stack').on('added', function(e, items) {/* items contains info */});
@@ -297,8 +316,9 @@ grid.addWidget('<div><div class="grid-stack-item-content"> test </div></div>', {
 grid.on('added', function(e, items) {/* items contains info */});
 
 ```
+ 3. see [Migrating to v0.6.x](#migrating-to-v06x) if you didn't already
 
-Other  vars/global changes
+Other vars/global changes
 ```
 `GridStackUI` --> `GridStack`
 `GridStackUI.GridStackEngine` --> `GridStack.Engine`
@@ -309,7 +329,9 @@ Other  vars/global changes
 
 Recommend looking at the [many samples](./demo) for more code examples.
 
-We're working on implementing support for other drag'n'drop libraries through the plugin system. Right now it is still jquery-ui based (but minimal build content)
+**NOTE: jQuery Applications** 
+
+We're working on implementing HTML5 drag'n'drop through the plugin system. Right now it is still jquery-ui based. Because of that we are still bundling `jquery` (3.4.1) + `jquery-ui` (1.12.1 minimal drag|drop|resize) internally in `gridstack.all.js`. IFF your app needs to bring it's own version instead, you should **instead** include `gridstack-poly.min.js` (optional IE support) + `gridstack.min.js` + `gridstack.jQueryUI.min.js` + after you import your libs.
 
 Changes
 =====

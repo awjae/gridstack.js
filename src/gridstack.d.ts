@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Type definitions for Gridstack 1.0.0-dev
 =======
 // Type definitions for Gridstack 1.1.0-dev
 >>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
+=======
+// Type definitions for Gridstack 1.1.0-dev
+>>>>>>> 722dd87334b043bfaffb86c85301691c3a5f9aa3
 // Project: https://gridstackjs.com/
 // Definitions by: Pascal Senn <https://github.com/PascalSenn>
 //                 Ricky Blankenaufulland <https://github.com/ZoolWay>
@@ -29,10 +33,14 @@ interface GridStackHTMLElement extends HTMLElement {
 }
 type GridStackEvent = 'added' | 'change' | 'disable' | 'dragstart' | 'dragstop' | 'dropped' |
 <<<<<<< HEAD
+<<<<<<< HEAD
                       'enable' | 'removed' | 'resize' | 'resizestart' | 'gsresizestop';
 =======
                       'enable' | 'removed' | 'resize' | 'resizestart' | 'gsresizestop' | string;
 >>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
+=======
+                      'enable' | 'removed' | 'resize' | 'resizestart' | 'gsresizestop' | string;
+>>>>>>> 722dd87334b043bfaffb86c85301691c3a5f9aa3
 
 interface GridStack {
   /**
@@ -305,20 +313,29 @@ interface GridStack {
    * Event handler that extracts our CustomEvent data out automatically for receiving custom
    * notifications (see doc for supported events)
 <<<<<<< HEAD
+<<<<<<< HEAD
    * @param name of the event (see possible values)
 =======
    * @param name of the event (see possible values) or list of names space separated
 >>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
+=======
+   * @param name of the event (see possible values) or list of names space separated
+>>>>>>> 722dd87334b043bfaffb86c85301691c3a5f9aa3
    * @param callback function called with event and optional second/third param
    * (see README documentation for each signature).
    * 
    * @example
    * grid.on('added', function(e, items) { log('added ', items)} );
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
    * or
    * grid.on('added removed change', function(e, items) { log(e.type, items)} );
 >>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
+=======
+   * or
+   * grid.on('added removed change', function(e, items) { log(e.type, items)} );
+>>>>>>> 722dd87334b043bfaffb86c85301691c3a5f9aa3
    * 
    * Note: in some cases it is the same as calling native handler and parsing the event.
    * grid.el.addEventListener('added', function(event) { log('added ', event.detail)} );
@@ -585,14 +602,20 @@ interface GridstackOptions {
   maxRow ? : number;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 722dd87334b043bfaffb86c85301691c3a5f9aa3
   /** 
    * minimum rows amount. Default is `0`. You can also do this with `min-height` CSS attribute
    * on the grid div in pixels, which will round to the closest row.
    */
   minRow?: number;
 
+<<<<<<< HEAD
 >>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
+=======
+>>>>>>> 722dd87334b043bfaffb86c85301691c3a5f9aa3
   /**
    * minimal width. If window width is less, grid will be shown in one column mode (default?: 768)
    */

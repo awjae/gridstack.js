@@ -6,11 +6,16 @@ Change log
 **Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - [1.0.0-dev (upcoming)](#100-dev-upcoming)
 =======
 - [1.1.0-dev (upcoming)](#110-dev-upcoming)
 - [1.1.0 (2020-02-29)](#110-2020-02-29)
 >>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
+=======
+- [1.1.0-dev (upcoming)](#110-dev-upcoming)
+- [1.1.0 (2020-02-29)](#110-2020-02-29)
+>>>>>>> 722dd87334b043bfaffb86c85301691c3a5f9aa3
 - [v1.0.0 (2020-02-23)](#v100-2020-02-23)
 - [v0.6.4 (2020-02-17)](#v064-2020-02-17)
 - [v0.6.3 (2020-02-05)](#v063-2020-02-05)
@@ -37,6 +42,7 @@ Change log
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## 1.0.0-dev (upcoming)
 
 -- TBD
@@ -44,6 +50,12 @@ Change log
 ## 1.1.0-dev (upcoming)
 
 - TBD
+=======
+## 1.1.0-dev (upcoming)
+
+- fix [1187](https://github.com/gridstack/gridstack.js/issues/1187) IE support for `CustomEvent` polyfill - thanks [@phil-blais](https://github.com/phil-blais)
+- include SASS source files to npm package again [1193](https://github.com/gridstack/gridstack.js/pull/1193)
+>>>>>>> 722dd87334b043bfaffb86c85301691c3a5f9aa3
 
 ## 1.1.0 (2020-02-29)
 
@@ -51,7 +63,10 @@ Change log
 - fix [1166](https://github.com/gridstack/gridstack.js/issues/1166) resize not taking margin height into account - thanks [@awjae](https://github.com/awjae)
 - fix [1155](https://github.com/gridstack/gridstack.js/issues/1155) `maxRow` now limit initial item placement if out of bound, preventing broken drag behavior
 - fix [1171](https://github.com/gridstack/gridstack.js/issues/1171) added event support to call `grid.on('added removed change', callback)` again even with native events.
+<<<<<<< HEAD
 >>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
+=======
+>>>>>>> 722dd87334b043bfaffb86c85301691c3a5f9aa3
 
 ## v1.0.0 (2020-02-23)
 
