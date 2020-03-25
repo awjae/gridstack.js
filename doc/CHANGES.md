@@ -7,9 +7,14 @@ Change log
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 - [1.0.0-dev (upcoming)](#100-dev-upcoming)
 =======
 - [1.1.0-dev (upcoming)](#110-dev-upcoming)
+=======
+- [1.1.1-dev (upcoming)](#111-dev-upcoming)
+- [1.1.1 (2020-03-17)](#111-2020-03-17)
+>>>>>>> 78ad209f1084ed7da2abb31d4382302f71cdd8ea
 - [1.1.0 (2020-02-29)](#110-2020-02-29)
 >>>>>>> 39e8869eb61669467dc31e0e64ca5efc27a5d898
 =======
@@ -43,6 +48,7 @@ Change log
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## 1.0.0-dev (upcoming)
 
 -- TBD
@@ -52,8 +58,18 @@ Change log
 - TBD
 =======
 ## 1.1.0-dev (upcoming)
+=======
+## 1.1.1-dev (upcoming)
+
+- fix [1229](https://github.com/gridstack/gridstack.js/issues/1229) `staticGrid` no longer disable oneColumnMode
+
+## 1.1.1 (2020-03-17)
+>>>>>>> 78ad209f1084ed7da2abb31d4382302f71cdd8ea
 
 - fix [1187](https://github.com/gridstack/gridstack.js/issues/1187) IE support for `CustomEvent` polyfill - thanks [@phil-blais](https://github.com/phil-blais)
+- fix [1204](https://github.com/gridstack/gridstack.js/issues/1204) destroy drag&drop when removing node(s) instead of just disabling it.
+- fix [1181](https://github.com/gridstack/gridstack.js/issues/1181) Locked widgets are still moveable by other widgets.
+- fix [1217](https://github.com/gridstack/gridstack.js/issues/1217) If I set cellHeight to some vh, only first grid will take vh, rest will use px
 - include SASS source files to npm package again [1193](https://github.com/gridstack/gridstack.js/pull/1193)
 >>>>>>> 722dd87334b043bfaffb86c85301691c3a5f9aa3
 
