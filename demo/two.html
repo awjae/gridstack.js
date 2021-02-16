@@ -10,21 +10,9 @@
   <link rel="stylesheet" href="demo.css"/>
   <link rel="stylesheet" href="../dist/gridstack-extra.css"/>
 
-  <script src="../src/jquery.js"></script>
-  <script src="../src/gridstack.js"></script>
-  <script src="../src/jquery-ui.js"></script>
-  <script src="../src/gridstack.jQueryUI.js"></script>
+  <script src="../dist/gridstack-h5.js"></script>
 
   <style type="text/css">
-    .grid-stack {
-      min-height: 50px;
-    }
-    #grid2 {
-      background: lightcyan;
-    }
-    #grid2 .grid-stack-item-content {
-      background-color: #9caabc;
-    }
     .grid-stack-item-removing {
       opacity: 0.5;
     }
@@ -40,11 +28,11 @@
       text-align: center;
     }
     .sidebar .grid-stack-item {
-      width: 200px;
-      height: 100px;
+      width: 120px;
+      height: 50px;
       border: 2px dashed green;
       text-align: center;
-      line-height: 100px;
+      line-height: 35px;
       z-index: 10;
       background: rgba(0, 255, 0, 0.1);
       cursor: default;
@@ -62,16 +50,14 @@
     <div class="row">
       <div class="col-md-3">
         <div class="sidebar">
-          
-          <!-- will size to fit content -->
+          <!-- will size to match content -->
           <div class="grid-stack-item">
             <div class="grid-stack-item-content">Drag me</div>
           </div>
           <!-- manually force a drop size of 2x1 -->
-          <div class="grid-stack-item" data-gs-width="2" data-gs-height="1">
-            <div class="grid-stack-item-content">Drag me 2x1</div>
+          <div class="grid-stack-item" gs-w="2" gs-h="1" gs-max-w="3">
+            <div class="grid-stack-item-content">2x1, max=3</div>
           </div>
-
         </div>
       </div>
       <div class="col-md-9">
@@ -84,29 +70,33 @@
       <div class="col-md-6">
         <a onClick="toggleFloat(this, 0)" class="btn btn-primary" href="#">float: false</a>
         <a onClick="compact(0)" class="btn btn-primary" href="#">Compact</a>
-        <div class="grid-stack grid-stack-6">
-        </div>
+        <div class="grid-stack grid-stack-6"></div>
       </div>
       <div class="col-md-6">
         <a onClick="toggleFloat(this, 1)" class="btn btn-primary" href="#">float: true</a>
         <a onClick="compact(1)" class="btn btn-primary" href="#">Compact</a>
-        <div class="grid-stack grid-stack-6">
-          </div>
+        <div class="grid-stack grid-stack-6"></div>
       </div>
     </div>
   </div>
-
+  <script src="events.js"></script>
   <script type="text/javascript">
-    var options = {
+    let options = {
       column: 6,
+      minRow: 1, // don't collapse when empty
+      cellHeight: 70,
+      disableOneColumnMode: true,
       float: false,
-      removable: '.trash',
+      dragIn: '.sidebar .grid-stack-item', // add draggable to class
+      dragInOptions: { revert: 'invalid', scroll: false, appendTo: 'body', helper: 'clone' }, // clone
+      removable: '.trash', // drag-out delete class
       removeTimeout: 100,
-      acceptWidgets: function(i, el) { return true; } // function example, else can be simple: true | false | '.someClass' value
+      acceptWidgets: function(el) { return true; } // function example, else can be simple: true | false | '.someClass' value
     };
-    var grids = GridStack.initAll(options);
+    let grids = GridStack.initAll(options);
     grids[1].float(true);
 
+<<<<<<< HEAD
     var items = [
       {x: 0, y: 0, width: 2, height: 2},
       {x: 3, y: 1, width: 1, height: 2},
@@ -163,11 +153,24 @@
       handle: '.grid-stack-item-content',
       scroll: false,
       appendTo: 'body',
+=======
+    let items = [
+      {x: 0, y: 0, w: 2, h: 2},
+      {x: 3, y: 1, h: 2},
+      {x: 4, y: 1},
+      {x: 2, y: 3, w: 3, maxW: 3, id: 'special', content: 'has maxW=3'},
+      {x: 2, y: 5}
+    ];
+
+    grids.forEach(function (grid, i) {
+      addEvents(grid, i);
+      grid.load(items);
+>>>>>>> 399770aaee3aa592fb075bd9d6c1c67c419655fe
     });
 
     function toggleFloat(button, i) {
-      grids[i].float(! grids[i].float());
-      button.innerHTML = 'float: ' + grids[i].float();
+      grids[i].float(! grids[i].getFloat());
+      button.innerHTML = 'float: ' + grids[i].getFloat();
     }
 
     function compact(i) {
